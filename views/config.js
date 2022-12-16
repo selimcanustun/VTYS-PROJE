@@ -2,7 +2,7 @@ const config={
     db:{
         host:"localhost",
         user: "root",
-        password: "Memolayda.5535",
+        password: "*****",
         database: "projedb"
     }
 }
