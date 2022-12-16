@@ -1,0 +1,20 @@
+<style>
+        .contaier-grafik{
+        display: block;
+    }
+    .card-grafik img{
+        width:30%;
+    }
+</style>
+<body>
+    <% liste3.forEach(e => { %>
+        <div class="container-grafik">
+    <div class="raw">
+        <div class="card-grafik">
+            <img src="/images/<%= e.image %>" alt="">
+            <p><%= e.bilgi %> </p>
+    <% }) %>
+        </div>
+    </div>
+</div>
+</body>

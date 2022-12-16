@@ -1,0 +1,56 @@
+<style>
+    
+            .card{
+               
+                display:flex;
+                border: 5px black;
+                align-items: center;
+                text-align:center;
+                float: left;
+                justify-content: center;
+                padding: 35px;
+                margin: 10px;
+                margin-right: 70px;
+                width: 30px;
+                height: 5px;}
+            .card img{
+                margin: 10px;
+                width: 40px;}
+    
+
+</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="raw">
+            <div class="card">
+                <img src="/images/<%= imageUrl %>" alt="">
+                <h5><p id="<%= name %>">""</p></h5>
+            </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>     
+    setInterval(function() {
+        const name ="<%= coinname %>";
+        const url = `https://api.binance.com/api/v3/ticker/price?symbol=${name}`
+                let spe = document.getElementById("<%= name %>");
+                axios.get(url).then(response => {
+                let price = parseFloat(response.data.price).toFixed(3);
+                spe.innerText= price;
+                /*let lastprice = null;
+                spe.style.color = !lastprice || lastprice === price ? `black` : price > lastprice ? `green` : `red`;
+                lastprice = price;*/
+            });
+    }, 1000);
+    </script>
+</body>
+</html>
+

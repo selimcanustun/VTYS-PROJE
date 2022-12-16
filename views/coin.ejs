@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=h1, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+
+</style>
+<body>
+    
+    <%- include("partials/logo")  %> 
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-5">
+                <% liste.forEach(coin => { %>
+                 
+             
+                    <%- include("partials/product", coin)  %> 
+
+                <% }) %>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

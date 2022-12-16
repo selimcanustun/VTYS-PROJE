@@ -1,0 +1,32 @@
+<style>
+    .col-4 img{ 
+        margin: 10px;
+        width: 100px;}
+    
+</style>
+<body>
+  
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                    <div class="card mb-3">
+                    <div class="row">
+                        <div class="col-4">
+                            <img src="/images/<%= coin.imageUrl %>" alt="" class="img-fluid">
+                        </div>
+                        <div class="col-8">
+                            <div class="card-body">
+                                <h5 class="card-title"><%= coin.name %> </h5>
+                                <p class="card-text"><%= coin.ATH %> </p>
+                                <p><%= coin.aciklama %> </p>
+                                <p id = "price">**</p>   
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>

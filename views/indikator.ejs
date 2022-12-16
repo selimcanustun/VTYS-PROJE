@@ -1,0 +1,31 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=h1, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .contaier-indik{
+        display: block;
+    }
+    .card-indik img{
+        width:30%;
+    }
+</style>
+<body>
+    <% liste2.forEach(e => { %>
+        <div class="container-indik">
+    <div class="raw">
+        <div class="card-indik">
+            <img src="/images/<%= e.image %>" alt="">
+            <p><%= e.info %> </p>
+    <% }) %>
+        </div>
+    </div>
+</div>
+</body>
+</html>
