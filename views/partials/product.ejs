@@ -1,5 +1,4 @@
-<style>
-    
+<style>  
             .card{
                
                 display:flex;
@@ -16,41 +15,36 @@
             .card img{
                 margin: 10px;
                 width: 40px;}
-    
-
 </style>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
 <body>
     <div class="container">
         <div class="raw">
             <div class="card">
-                <img src="/images/<%= imageUrl %>" alt="">
+                <a href="/coin/<%= id %>"><img src="/images/<%= imageUrl %>" alt="" title="<%= aciklamaimg %>"></a>
                 <h5><p id="<%= name %>">""</p></h5>
             </div>
         </div>
     </div>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script>     
-    setInterval(function() {
-        const name ="<%= coinname %>";
-        const url = `https://api.binance.com/api/v3/ticker/price?symbol=${name}`
-                let spe = document.getElementById("<%= name %>");
-                axios.get(url).then(response => {
-                let price = parseFloat(response.data.price).toFixed(3);
-                spe.innerText= price;
-                /*let lastprice = null;
-                spe.style.color = !lastprice || lastprice === price ? `black` : price > lastprice ? `green` : `red`;
-                lastprice = price;*/
-            });
-    }, 1000);
+    <script>
+function YETERRRR(){
+    let lastprice = null;
+        setInterval(function() {
+            const name ="<%= coinname %>";
+            const url = `https://api.binance.com/api/v3/ticker/price?symbol=${name}`
+                    let spe = document.getElementById("<%= name %>");
+                    axios.get(url).then(response => {
+                    let price = parseFloat(response.data.price).toFixed(4);
+                    spe.innerText= price;
+                    if (lastprice==price || !lastprice) {spe.style.color = `black`;}
+                    else if (lastprice<price) {spe.style.color = `green`;}
+                    else  {spe.style.color = `red`;}
+                    lastprice = price;
+                });
+        }, 10000);
+}
+YETERRRR();
+
     </script>
 </body>
-</html>
 

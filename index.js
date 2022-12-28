@@ -8,8 +8,6 @@ app.use(express.static('node_modules'));
 const db = require("./data/db");
 
 
-
-
 app.use("/coin/:id", async function(req, res){
     try{
         const [product,] = await db.execute("select*from coinler where id=?", [req.params.id]);
@@ -23,9 +21,20 @@ app.use("/coin/:id", async function(req, res){
 });
 app.use("/coin", async function(req, res){
     try{
-        const [products,] = await db.execute("select*from coinler");
+        const [coins,] = await db.execute("select*from coinler");
         res.render("coin",{
-           liste: products
+           liste5: coins
+       }); 
+   }
+   catch(err){
+       console.log(err);
+   }
+});
+app.use("/indikator_kilavuz", async function(req, res){
+    try{
+        const [indikk,] = await db.execute("select*from indikator_kilavuz");
+        res.render("indikator_kilavuz",{
+           liste4: indikk
        }); 
    }
    catch(err){
